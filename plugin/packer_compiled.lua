@@ -233,7 +233,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-cmp"] = {
-    after = { "cmp-buffer", "cmp-nvim-lsp", "cmp-nvim-lsp-signature-help", "cmp-nvim-lua", "cmp-omni", "cmp-path", "cmp-vsnip" },
+    after = { "cmp-nvim-lsp", "cmp-nvim-lsp-signature-help", "cmp-nvim-lua", "cmp-omni", "cmp-path", "cmp-vsnip", "cmp-buffer" },
     config = { "require('config.nvim-cmp')" },
     load_after = {
       ["lspkind-nvim"] = true
@@ -352,14 +352,14 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Setup for: wilder.nvim
-time([[Setup for wilder.nvim]], true)
-vim.cmd('packadd wilder.nvim')
-time([[Setup for wilder.nvim]], false)
 -- Setup for: committia.vim
 time([[Setup for committia.vim]], true)
 vim.cmd('packadd committia.vim')
 time([[Setup for committia.vim]], false)
+-- Setup for: wilder.nvim
+time([[Setup for wilder.nvim]], true)
+vim.cmd('packadd wilder.nvim')
+time([[Setup for wilder.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 require('config.nvim-tree')
@@ -375,19 +375,19 @@ time([[Config for gitsigns.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
-pcall(vim.api.nvim_create_user_command, 'Flog', function(cmdargs)
-          require('packer.load')({'vim-flog'}, { cmd = 'Flog', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
-        end,
-        {nargs = '*', range = true, bang = true, complete = function()
-          require('packer.load')({'vim-flog'}, {}, _G.packer_plugins)
-          return vim.fn.getcompletion('Flog ', 'cmdline')
-      end})
 pcall(vim.api.nvim_create_user_command, 'AsyncRun', function(cmdargs)
           require('packer.load')({'asyncrun.vim'}, { cmd = 'AsyncRun', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
         end,
         {nargs = '*', range = true, bang = true, complete = function()
           require('packer.load')({'asyncrun.vim'}, {}, _G.packer_plugins)
           return vim.fn.getcompletion('AsyncRun ', 'cmdline')
+      end})
+pcall(vim.api.nvim_create_user_command, 'Flog', function(cmdargs)
+          require('packer.load')({'vim-flog'}, { cmd = 'Flog', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
+        end,
+        {nargs = '*', range = true, bang = true, complete = function()
+          require('packer.load')({'vim-flog'}, {}, _G.packer_plugins)
+          return vim.fn.getcompletion('Flog ', 'cmdline')
       end})
 pcall(vim.api.nvim_create_user_command, 'Conflicted', function(cmdargs)
           require('packer.load')({'vim-conflicted'}, { cmd = 'Conflicted', l1 = cmdargs.line1, l2 = cmdargs.line2, bang = cmdargs.bang, args = cmdargs.args, mods = cmdargs.mods }, _G.packer_plugins)
@@ -407,9 +407,9 @@ time([[Defining lazy-load filetype autocommands]], false)
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
 vim.cmd [[au BufEnter * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au User InGitRepo ++once lua require("packer.load")({'vim-fugitive', 'gitlinker.nvim'}, { event = "User InGitRepo" }, _G.packer_plugins)]]
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim', 'which-key.nvim', 'indent-blankline.nvim', 'lspkind-nvim', 'lualine.nvim', 'nvim-web-devicons'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'lualine.nvim', 'nvim-web-devicons', 'dashboard-nvim', 'which-key.nvim', 'lspkind-nvim', 'indent-blankline.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'better-escape.vim'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au User InGitRepo ++once lua require("packer.load")({'vim-fugitive', 'gitlinker.nvim'}, { event = "User InGitRepo" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
