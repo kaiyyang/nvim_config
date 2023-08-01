@@ -23,20 +23,26 @@ conf.center = {
   {
     icon = "  ",
     desc = "Find  File                              ",
-    action = "Leaderf file --popup",
+    action = "Telescope find_files",
     key = "<Leader> f f",
   },
   {
     icon = "  ",
-    desc = "Recently opened files                   ",
-    action = "Leaderf mru --popup",
-    key = "<Leader> f r",
+    desc = "Live Grep                               ",
+    action = "Telescope live_grep                   ",
+    key = "<Leader> f g",
   },
   {
     icon = "  ",
-    desc = "Project grep                            ",
-    action = "Leaderf rg --popup",
-    key = "<Leader> f g",
+    desc = "Find Buffers                            ",
+    action = "Telescope buffers",
+    key = "<Leader> f b",
+  },
+  {
+    icon = "  ",
+    desc = "Find Tags",
+    action = "Telescope tags",
+    key = "<Leader> f h",
   },
   {
     icon = "  ",

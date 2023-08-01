@@ -8,8 +8,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use { "onsails/lspkind-nvim", event = "VimEnter" }
   -- auto-completion engine
-  use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvim-cmp')]] }
-  use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
+  use { "hrsh7th/nvim-cmp", after = "lspkind-nvim", config = [[require('config.nvim-cmp')]] } use { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp" }
   use { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp" }
   use { "hrsh7th/cmp-path", after = "nvim-cmp" }
   use { "hrsh7th/cmp-nvim-lsp-signature-help", after = "nvim-cmp" }
@@ -20,7 +19,7 @@ return require('packer').startup(function(use)
     use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
   end
 
-  use { "nvim-tree/nvim-web-devicons", event = "VimEnter" }
+  use { "nvim-tree/nvim-web-devicons" }
 
   use {
       "nvim-lualine/lualine.nvim",
@@ -41,7 +40,7 @@ return require('packer').startup(function(use)
       config = [[require('config.indent-blankline')]],
   }
   -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
-  use { "neovim/nvim-lspconfig"}
+  use { "neovim/nvim-lspconfig", config = [[require('config.lsp')]]}
   -- for quick lsp support and language package management
   use {
     "williamboman/mason.nvim",
@@ -52,7 +51,7 @@ return require('packer').startup(function(use)
   -- latex support
   use { "lervag/vimtex", ft = { "tex" } }
 
-  use {"simrat39/rust-tools.nvim"}
+  -- use {"simrat39/rust-tools.nvim"}
 
   -- Asynchronous command execution
   use { "skywind3000/asyncrun.vim", opt = true, cmd = { "AsyncRun" } }
@@ -70,6 +69,13 @@ return require('packer').startup(function(use)
     requires = { "nvim-tree/nvim-web-devicons" },
     config = [[require('config.nvim-tree')]],
   }
+
+    -- File search, tag search and more
+  if vim.g.is_win then
+    use { "Yggdroot/LeaderF", cmd = "Leaderf" }
+  else
+    use { "Yggdroot/LeaderF", cmd = "Leaderf", run = ":LeaderfInstallCExtension" }
+  end
 
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
@@ -120,7 +126,15 @@ return require('packer').startup(function(use)
   use {'mfussenegger/nvim-dap'}
   -- DAP UI
   use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } 
-
+  -- Better TAB
+  use { "romgrk/barbar.nvim", config = [[require('config.barbar')]] }
+  -- Better Comment/Un Comment
+  -- use {
+  --   'numToStr/Comment.nvim',
+  --   config = function()
+  --       require('Comment').setup()
+  --   end
+  -- }
   -- ColorScheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 end)
