@@ -46,8 +46,10 @@ return require('packer').startup(function(use)
     "williamboman/mason.nvim",
     "williamboman/mason-lspconfig.nvim"
   }
-  -- markdown support
+  -- markdown support (browser)
   use {'iamcco/markdown-preview.nvim'}
+  -- markdown support (terminal)
+  use {"ellisonleao/glow.nvim", config = [[require('config.glow')]]}
   -- latex support
   use { "lervag/vimtex", ft = { "tex" } }
 
@@ -80,7 +82,8 @@ return require('packer').startup(function(use)
   use {
     'nvim-telescope/telescope.nvim', tag = '0.1.2',
 -- or                            , branch = '0.1.x',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { {'nvim-lua/plenary.nvim'} },
+    config = [[require('config.telescope')]],
   }
 
   use {

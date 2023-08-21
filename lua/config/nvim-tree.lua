@@ -1,7 +1,7 @@
 local keymap = vim.keymap
 local nvim_tree = require("nvim-tree")
 
-nvim_tree.setup {
+nvim_tree.setup ({
   auto_reload_on_write = true,
   disable_netrw = false,
   hijack_cursor = false,
@@ -17,13 +17,7 @@ nvim_tree.setup {
     preserve_window_proportions = false,
     number = false,
     relativenumber = false,
-    signcolumn = "yes",
-    mappings = {
-      custom_only = false,
-      list = {
-        -- user mappings go here
-      },
-    },
+    signcolumn = "yes"
   },
   renderer = {
     indent_markers = {
@@ -107,7 +101,7 @@ nvim_tree.setup {
       profile = false,
     },
   },
-}
+})
 
 keymap.set("n", "<space>s", require("nvim-tree.api").tree.toggle, {
   silent = true,
