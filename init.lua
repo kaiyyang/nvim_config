@@ -2,7 +2,7 @@ local g = vim.g
 local cmd = vim.cmd
 
 -- Leader/local leader
-g.mapleader = [[ ]]
+g.mapleader = [[;]]
 g.maplocalleader = [[,]]
 
 -- Skip some remote provider loading
@@ -88,8 +88,8 @@ local map = vim.api.nvim_set_keymap
 map('n', 'gs', '<cmd>Neogit<cr>', silent)
 
 -- Yank to clipboard
-map('n', 'y+', '<cmd>set opfunc=util#clipboard_yank<cr>g@', silent)
-map('v', 'y+', '<cmd>set opfunc=util#clipboard_yank<cr>g@', silent)
+map('n', '+y', '"+y', silent)
+map('v', '+y', '"+y', silent)
 
 -- Window movement
 map('n', '<c-h>', '<c-w>h', silent)
