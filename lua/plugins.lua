@@ -18,8 +18,7 @@ return require('packer').startup(function(use)
   if vim.g.is_mac then
     use { "hrsh7th/cmp-emoji", after = "nvim-cmp" }
   end
-
-  use { "nvim-tree/nvim-web-devicons" }
+  use { "nvim-tree/nvim-web-devicons" } 
 
   use {
       "nvim-lualine/lualine.nvim",
@@ -53,7 +52,6 @@ return require('packer').startup(function(use)
   -- latex support
   use { "lervag/vimtex", ft = { "tex" } }
 
-  -- use {"simrat39/rust-tools.nvim"}
 
   -- Asynchronous command execution
   use { "skywind3000/asyncrun.vim", opt = true, cmd = { "AsyncRun" } }
@@ -123,12 +121,20 @@ return require('packer').startup(function(use)
       end, 2000)
     end,
   }
+  -- DAP
+  use { "mfussenegger/nvim-dap", config = [[require('config.nvim-dap')]] }
+  use {'nvim-telescope/telescope-dap.nvim'}
+  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"}, config = function() require("dapui").setup() end }
+  
+  -- language set up for rust, go, python
+  use { "simrat39/rust-tools.nvim", config = [[require('config.rust-tools')]] }
+  use { "leoluz/nvim-dap-go", config = function() require('dap-go').setup() end }
+  use { 'mfussenegger/nvim-dap-python', config = function() require('dap-python').setup('~/.virtualenvs/debugpy/bin/python') end}
+
+
+
   -- Better Escaping Plugins
   use {'jdhao/better-escape.vim', event = 'InsertEnter'}
-  -- DAP
-  use {'mfussenegger/nvim-dap'}
-  -- DAP UI
-  use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} } 
   -- Better TAB
   use { "romgrk/barbar.nvim", config = [[require('config.barbar')]] }
   -- Better Comment/Un Comment
@@ -138,6 +144,8 @@ return require('packer').startup(function(use)
   --       require('Comment').setup()
   --   end
   -- }
+  -- Github Copilot
+  use { "github/copilot.vim" }
   -- ColorScheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 end)

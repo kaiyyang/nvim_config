@@ -21,43 +21,43 @@ conf.header = {
 
 conf.center = {
   {
-    icon = "  ",
+    icon = "󰮗 ",
     desc = "Find  File                              ",
     action = "Telescope find_files",
     key = "<Leader> f f",
   },
   {
-    icon = "  ",
+    icon = " ",
     desc = "Live Grep                               ",
     action = "Telescope live_grep                   ",
     key = "<Leader> f g",
   },
   {
-    icon = "  ",
+    icon = " ",
     desc = "Find Buffers                            ",
     action = "Telescope buffers",
     key = "<Leader> f b",
   },
   {
-    icon = "  ",
+    icon = " ",
     desc = "Find Tags",
     action = "Telescope tags",
     key = "<Leader> f h",
   },
   {
-    icon = "  ",
+    icon = " ",
     desc = "Open Nvim config                        ",
     action = "tabnew $MYVIMRC | tcd %:p:h",
     key = "<Leader> e v",
   },
   {
-    icon = "  ",
+    icon = " ",
     desc = "New file                                ",
     action = "enew",
     key = "e",
   },
   {
-    icon = "  ",
+    icon = "󰗼 ",
     desc = "Quit Nvim                               ",
     -- desc = "Quit Nvim                               ",
     action = "qa",

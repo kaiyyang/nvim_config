@@ -1,5 +1,6 @@
 local g = vim.g
 local cmd = vim.cmd
+local api = vim.api
 
 -- Leader/local leader
 g.mapleader = [[;]]
@@ -13,7 +14,7 @@ g.loaded_ruby_provider = 0
 
 -- Better Escape Settings
 g.better_escape_shortcut = 'jj'
-g.better_escape_interval = 100
+g.better_escape_interval = 200
 -- Disable some built-in plugins we don't want
 local disabled_built_ins = {
   'gzip',
@@ -108,8 +109,8 @@ for _, name in ipairs(core_conf_files) do
 end
 
 -- Mason for lsp
-require("mason").setup()
-require("mason-lspconfig").setup()
+require('mason').setup()
+require('mason-lspconfig').setup()
 
 -- ColorScheme
 require('rose-pine').setup({
@@ -169,5 +170,4 @@ require('rose-pine').setup({
 
 -- Set colorscheme after options
 cmd [[colorscheme rose-pine]]
-
 
