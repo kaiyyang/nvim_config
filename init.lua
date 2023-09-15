@@ -170,4 +170,5 @@ require('rose-pine').setup({
 
 -- Set colorscheme after options
 cmd [[colorscheme rose-pine]]
+cmd [[hi Search guibg=#44415a]]
 
