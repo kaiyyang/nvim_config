@@ -38,10 +38,10 @@ gs.setup {
     end, { expr = true, desc = "previous hunk" })
 
     -- Actions
-    map("n", "<leader>gp", gs.preview_hunk)
+    map("n", "<leader>gp", gs.preview_hunk, {desc="git preview"})
     map("n", "<leader>gb", function()
       gs.blame_line { full = true }
-    end)
+    end, {desc="git blame"})
   end,
 }
 

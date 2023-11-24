@@ -16,3 +16,5 @@ let g:vimtex_view_method = 'skim' " Choose which program to use to view PDF file
 let g:vimtex_view_skim_sync = 1 " Value 1 allows forward search after every successful compilation
 let g:vimtex_view_skim_activate = 1 " Value 1 allows change focus to skim after command `:VimtexView` is given
 
+" auto clear the jump lists
+autocmd VimEnter * :clearjumps

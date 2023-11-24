@@ -33,11 +33,6 @@ return require('packer').startup(function(use)
     config = [[require('config.dashboard-nvim')]]
   }
 
-  use {
-      "lukas-reineke/indent-blankline.nvim",
-      event = "VimEnter",
-      config = [[require('config.indent-blankline')]],
-  }
   -- nvim-lsp configuration (it relies on cmp-nvim-lsp, so it should be loaded after cmp-nvim-lsp).
   use { "neovim/nvim-lspconfig", config = [[require('config.lsp')]]}
   -- for quick lsp support and language package management
@@ -145,7 +140,7 @@ return require('packer').startup(function(use)
   --   end
   -- }
   -- Github Copilot
-  use { "github/copilot.vim" }
+  -- use { "github/copilot.vim" }
   -- ColorScheme
   use({ 'rose-pine/neovim', as = 'rose-pine' })
 end)

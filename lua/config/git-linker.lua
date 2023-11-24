@@ -14,12 +14,12 @@ keymap.set({ "n", "v" }, "<leader>gl", "", {
   end,
 })
 
-keymap.set("n", "<leader>gb", "", {
-  silent = true,
-  desc = "browse repo in browser",
-  callback = function()
-    gitlinker.get_repo_url({
-      action_callback = gitlinker.actions.open_in_browser
-    })
-  end
-})
+-- keymap.set("n", "<leader>gb", "", {
+--   silent = true,
+--   desc = "browse repo in browser",
+--   callback = function()
+--     gitlinker.get_repo_url({
+--       action_callback = gitlinker.actions.open_in_browser
+--     })
+--   end
+-- })
